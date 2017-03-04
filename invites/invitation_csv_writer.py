@@ -1,7 +1,7 @@
 import itertools
 import csv
 
-reader = csv.DictReader(open('wedding2.csv', 'rb'))
+reader = csv.DictReader(open('wedding.csv', 'rb'))
 reader.fieldnames[3] = 'invite-group'
 reader.fieldnames[4] = 'printed'
 reader.fieldnames[5] = 'mailed'
