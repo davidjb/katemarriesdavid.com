@@ -37,3 +37,8 @@
 
 * http://itsthejumpoff.com
 * http://sarahlovesbradley.com/ -- wedding-responsive on Github
+
+## Fonts
+
+* <https://www.fontsquirrel.com/tools/webfont-generator>
+* <http://font2web.com>

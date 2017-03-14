@@ -1,8 +1,12 @@
-* CW502 Ivory/Navy (fold vertical): https://www.aliexpress.com/wholesale?site=glo&g=y&SortType=price_asc&SearchText=CW502&needQuery=n
-* W1113 Ivory with Ivory Ribbon; trifold https://www.aliexpress.com/wholesale?catId=0&initiative_id=&SearchText=W1113
+# Invitation prep
+
+    inkscape_merge -f wedding-invite-a4.svg -d names.csv -o invitations-%d.pdf
 
 ## Comparison
 
+
+* CW502 Ivory/Navy (fold vertical): https://www.aliexpress.com/wholesale?site=glo&g=y&SortType=price_asc&SearchText=CW502&needQuery=n
+* W1113 Ivory with Ivory Ribbon; trifold https://www.aliexpress.com/wholesale?catId=0&initiative_id=&SearchText=W1113
 * AUD $60 Vertical opening CW502 (need to instruct *WHITE* as the colour on
   TaoBao; plus cheaper shipping on placecards)
 * AUD$95 Gold/Black Tree split in middle (dark blue is more like royal blue; could put ribbon around tree)

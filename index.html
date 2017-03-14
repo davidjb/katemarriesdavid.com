@@ -1,35 +1,630 @@
 <!DOCTYPE html>
-<html>
+<html class="dharma 4 8 15 16 23 42">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
+  <meta charset="utf-8">
+  <!--<meta name="viewport" content="width=device-width">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="icon" href="img/heart-sketch.png" type="image/png">
+  <link rel="icon" href="img/heart-sketch.svg" sizes="any" type="image/svg+xml">
+  <!-- Don't panic! -->
   <title>It's Happening! ~ Kate Marries David</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
   <style>
     html, body {
       height: 100%;
+      font-weight: 300;
     }
     body {
+      position: relative;
+      padding-top: 58px;
+    }
+    .row.collapse.show {
+      display: flex;
+    }
+    .title {
+      font-family: 'Beautylove',fantasy;
+    }
+    .h2, .h3,
+    h2, h3 {
+      font-family: 'Marion Regular',serif;
+      margin-top: 2rem;
+      padding-bottom: .25rem;
+    }
+    .navbar {
+      box-shadow: 0 0 1.5em #000;
+      font-size: 1.1rem;
+    }
+    .navbar .form-inline,
+    .nav-item {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    /* Hack to workaround container being incorrect width on xs devices */
+    /* This has the effect of moving the menu toggler to the centre */
+    .navbar-toggleable-md > .container {
+      width: 100%;
+    }
+    .navbar-toggleable-md .navbar-nav .nav-link {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .nav-link.active {
+      background: rgba(0,0,0,.25);
+      border-radius: .5rem;
+    }
+    .badge-navy,
+    .navy {
       background-color: #0f354c;
     }
     .ivory {
       background-color: #f0e9cc;
     }
+    .ivory--overlay {
+      background-color: rgba(240,233,204,.7);
+    }
+    .btn-primary:focus {
+      color: #f0e9cc;
+    }
+    .intro {
+      background-image: url('./img/gallery-2.jpg');
+      background-position: center;
+      background-size: cover;
+      min-height: 40vh;
+    }
+    .key-fact {
+      font-size: 2.5rem;
+      font-family: 'Fredericka the Great', cursive;
+      line-height: 1em;
+    }
+    .time {
+      font-family: 'Marion Regular',serif;
+      font-size: 2rem;
+      letter-spacing: -1px;
+      line-height: 1em;
+    }
+    .highlights em {
+      font-size: 1.75em;
+      font-family: 'Fredericka the Great', cursive;
+      font-style: normal;
+      letter-spacing: -1px;
+      line-height: .7em;
+    }
+    .more-info::before {
+      content: "Hide"
+    }
+    .more-info.collapsed::before {
+      content: "Show"
+    }
+    .poem {
+      font-family: "American Typewriter Regular",monospace;
+      font-size: 1.25rem;
+      margin-left: 2rem;
+      padding: .5rem 1rem .5rem 2rem;
+      margin-bottom: 1rem;
+      border-left: .25rem solid rgba(0,0,0,.5);
+    }
+    .highlight {
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: .25rem solid rgba(0,0,0,.5);
+    }
+    .logo {
+      padding: 1rem;
+      filter: sepia(100%) brightness(65%);
+      transition: .3s filter;
+      -webkit-filter: sepia(100%) brightness(65%);
+      -webkit-transition: .3s -webkit-filter;
+      -moz-filter: sepia(100%) brightness(65%);
+      -o-filter: sepia(100%) brightness(65%);
+      -ms-filter: sepia(100%) brightness(65%);
+    }
+    .logo:hover {
+      filter: initial;
+      -webkit-filter: initial;
+      -moz-filter: initial;
+      -o-filter: initial;
+      -ms-filter: sepia(0%) brightness(100%);
+    }
+    .invert {
+      filter: invert(1);
+      -webkit-filter: invert(1);
+      -moz-filter: invert(1);
+      -o-filter: invert(1);
+      -ms-filter: invert(1);
+    }
+    .table th {
+      text-align: center;
+    }
+    .mfp-with-zoom .mfp-container,
+    .mfp-with-zoom.mfp-bg {
+      opacity: 0;
+      -webkit-backface-visibility: hidden;
+      /* ideally, transition speed should match zoom duration */
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .mfp-with-zoom.mfp-ready .mfp-container {
+      opacity: 1;
+    }
+    .mfp-with-zoom.mfp-ready.mfp-bg {
+      opacity: 0.8;
+    }
+
+    .mfp-with-zoom.mfp-removing .mfp-container,
+    .mfp-with-zoom.mfp-removing.mfp-bg {
+      opacity: 0;
+    }
   </style>
 </head>
-<body>
-  <div class="container h-100">
-    <div class="row h-100 align-items-center justify-content-center">
-      <div class="col-lg-8 py-3 ivory text-center">
-        <img class="img-fluid mb-3" src="img/save-the-date.jpg" alt="Save the date!">
-        <a class="btn btn-secondary mb-2" href="files/save-the-date.pdf">Download PDF</a>
-        <p><strong>Questions?</strong> Email <a href="mailto:wtf@KateMarriesDavid.com">finally@KateMarriesDavid.com</a></p>
+<body class="navy" id="top" data-spy="scroll" data-target="#navbar-wrapper" data-offset="105">
+  <div class="container ivory mb-5">
+    <!-- ☸ ☸ -->
+    <!-- Easter eggs: dharma, 42, don't panic etc. Badger Rick Roll -->
+    <!-- Content from invitations, save the date, Google tasks, Trello etc -->
+    <div id="navbar-wrapper">
+      <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top text-center bg-inverse" id="navbar">
+        <div class="container">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Workaround https://github.com/twbs/bootstrap/issues/21846 -->
+          <span class="navbar-text">&nbsp;</span>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#top">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#story">Our story</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#bridal-party">Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#when-where">When &amp; Where</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#gifts">Gifts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#key-info">Key info</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#questions">Questions?</a>
+              </li>
+            </ul>
+            <span class="form-inline justify-content-center">
+              <a class="nav-link btn btn-primary" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdCiLPYdMTc4KAj5w7hfsfqwu4Uj2TWK9sEfVmlhYUeHcsU8g/viewform?embedded=true#response=ACYDBNjIQTE1mKDN6T63IFCql2S8SEHmlpOFOYVqCMXosMTs2mqbkWAA3saePQ">RSVP Now</a>
+            </span>
+          </div>
+        </div>
+      </nav>
+    </div><!-- /#navbar-wrapper -->
+
+    <div class="row px-0">
+      <div class="col">
+        <div class="row intro align-items-end">
+          <div class="col-md-6 p-3 mx-auto mb-5 text-center ivory--overlay rounded">
+            <h1 class="display-1 title">Kate <img src="img/heart-sketch.svg" alt="and" title="and" style="height: .75em;"><span class="sr-only">and</span> David</h1>
+            <p class="lead mb-0">are getting married (finally!)</p>
+            <p class="key-fact mb-0">12 August 2017</p>
+            <p class="mb-0">Townsville, Queensland, Australia</p>
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="row gallery mb-5" id="photo">
+      <!-- Photos / small gallery from "engagement shoot" -->
+      <div class="col px-0"><a href="img/gallery-1.jpg" title="Down on one knee"><img class="img-fluid" src="img/gallery-1.jpg" alt=""></a></div>
+      <div class="col px-0"><a href="img/gallery-0.jpg" title="Partners in crime"><img class="img-fluid" src="img/gallery-0.jpg" alt=""></a></div>
+      <div class="col px-0"><a href="img/gallery-3.jpg" title="Hitting the wall"><img class="img-fluid" src="img/gallery-3.jpg" alt=""></a></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="text-center mb-5">
+          <h2 id="story">It's kind of a long story,</h2>
+          <p class="lead">but let's catch you up in case you missed an episode.</p>
+        </div>
+        <p class="text-justify">
+        Kate and David met in January 2000 as classmates in year 8 at Pimlico High. Friends, studymates and pair programmers for many years, they finally started dating on the fateful night of 12 August 2007. Theirs is an epic love story over 10 years in the making, full of moving out, finishing uni, moving back in again, buying a house, moving out (permanently), finishing more uni, getting real jobs, installing garden irrigation, going on world trips, getting engaged, and raising a cactus family together.
+        </p>
+        <div class="row text-center my-5">
+          <div class="col">
+            <p class="key-fact">10</p>
+            years together
+          </div>
+          <div class="col">
+            <p class="key-fact">204</p>
+            days: Kate's seniority
+          </div>
+          <div class="col">
+            <p class="key-fact">9.25</p>
+            average shoe size
+          </div>
+          <div class="col">
+            <p class="key-fact">42</p>
+            is an awesome number
+          </div>
+        </div>
+        <p class="text-justify">
+          Their shared loves include technology, mexican food, the number 42,  dark sarcasm, Jack Bauer, badgers, rum and shrubberies. They hate streetlights, litterbugs, modern music, Vogon poetry, <a href="https://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454">parsing HTML with regex</a>, undercooked chicken, poor grammar, and unfinished
+        </p>
+        <p class="text-justify">
+          Kate and David’s journey culminates (peaks?) on 12 August 2017, when they will start an even bigger and more exciting chapter together.
+        </p>
+
+
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col text-center">
+        <img src="img/swirl.svg" alt="Divider">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-9 mx-auto">
+        <div class="text-center mb-5">
+          <h2 id="bridal-party">Our wedding team</h2>
+          <!-- Bridal party names and (funny) bios - if ok with it -->
+          <p class="lead">They're all as crazy as we are.</p>
+        </div>
+        <div class="row mb-5">
+          <div class="col-lg-4 text-center">
+            <h3 class="key-fact">Miradija</h3>
+            <em>Bridesmaid</em>
+          </div>
+          <div class="col-lg-8">
+            Better known as Marnie, she’s the non-identical twin Kate never had. Their friendship started at Pimlico High in year 10 after she relocated to Townsville, and continued through their senior years and university studies. They lived together in the final year of their respective degrees at the now-legendary “Nuthouse” (along with David and James),  and though Marnie now lives in Tassie, the miles and oceans between them can’t seem to curb the silliness.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 text-center">
+            <h3 class="key-fact">Giovanni</h3>
+            <em>Bridesman</em>
+          </div>
+          <div class="col-lg-8">
+            Giovanni and Kate have been friends since their early days of reading newspapers for fun in year 8 at Pimlico High. They’ve debated against the best and won, held countless election parties, enjoyed many different BBC productions, and shared extremely cold international holidays together. Despite Giovanni now living in Sydney, their long-distance quest for world domination continues.
+          </div>
+        </div>
+        <div class="row my-4">
+          <div class="col text-center">
+            <img src="img/flourish-left.svg" alt="Divider">
+            <img src="img/flourish-right.svg" alt="Divider">
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-lg-4 text-center">
+            <h3 class="key-fact">James</h3>
+            <em>Groomsman</em>
+          </div>
+          <div class="col-lg-8">
+            James and David have been friends since grade 8 and James once set fire to David's arm in year 9 chemistry, proving that neither should be allowed near hazardous substances.  James introduced David to "Weird Al" Yankovic, Lemon &amp; Paeroa soft drink and LAN gaming.  After living together in university, their shared love of bargains lead to every Dick Smith and Officeworks store known to man. David recalls the first thing James said to him:
+            <p class="lead text-center mb-0">“Hey, you've got weasels on your face.”</p>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-lg-4 text-center">
+            <h3 class="key-fact">Wade</h3>
+            <em>Groomsman</em>
+          </div>
+          <div class="col-lg-8">
+            Wade's intellect is rivalled only by his ability to play the cello… and computer games. Wade and David met in grade 8, playing too many card games at lunch time (and in class).  In university, they shared an office, suffered Honours together &amp; played StarCraft when times got tough.  They've  worked on various IT projects throughout the years, peaking in the epic failure to play a DVD in New Zealand.
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-lg-4 text-center">
+            <h3 class="key-fact">Michael</h3>
+            <em>Groomsman,<br>
+            MC,<br>
+            Long-suffering brother</em>
+          </div>
+          <div class="col-lg-8">
+            Michael and David have been brothers ever since the former was born, recently proven via a DNA test as we weren't quite sure.   They share the love of Dr Pepper, Lost, Scrubs, technology and adventure.  They honour their forefathers by continuing Beitey traditions of saving money at any cost.  A recent trip to Japan strengthened their bonds through late nights, Pachinko and confrontations with older women on the street.  Michael offers free medical advice and will be available for consultation at the wedding.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col text-center">
+        <img src="img/swirl.svg" alt="Divider">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-9 mx-auto text-center">
+        <div class="mb-5">
+          <h2 id="when-where">When &amp; where</h2>
+          <p class="lead">Let's do this. Just remember to respond by 1 June 2017.</p>
+        </div>
+        <div class="row mb-5">
+          <div class="col">
+            <p class="key-fact"><abbr title="To be announced">TBA</abbr></p>
+            Bachelor + <br> Bachelorette party
+          </div>
+          <div class="col">
+            <p class="key-fact">Friday</p>
+            <p>Ceremony Rehearsal + <br>Rehearsal Dinner<br>
+            <span class="badge badge-navy">Wedding party only</span>
+            </p>
+            <p class="px-5 text-justify">Held at Kissing Point the afternoon before the wedding; rehearsal dinner to follow at a nearby location to be determined.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mb-4">
+            <p class="key-fact">Saturday 12 August</p>
+          </div>
+          <div class="col-6">
+            <p>
+              <span class="time">Three PM Sharp<br>Ceremony</span><br>
+              <strong>Kissing Point, Fort Lawn</strong><br>
+              <img class="img-fluid" src="./img/gallery-4.jpg" title="Kissing Point, looking towards Castle Hill" width="200">
+            </p>
+          </div>
+          <div class="col-6">
+            <p>
+              <span class="time">Six PM Sharp<br>Reception</span>
+            </p>
+            <p>
+              <a href="http://www.reefhq.com.au/">
+                <img class="img-fluid" src="./img/reefhq-colour-text.svg" title="ReefHQ Great Barrier Reef Aquarium">
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="row collapse" id="saturday">
+          <div class="col px-5 text-justify">
+            <p>
+              The ceremony is at Kissing Point, at northern-most end of Townsville’s Strand. Details on the Fort Lawn’s location within the <em>Jezzine Barracks</em> precinct, bathroom facilities, and car parking areas can be found in our <a class="page-scroll" href="#map">Maps section</a>.
+            </p>
+            <div class="alert alert-info" role="alert">
+              A short, uphill walk on a sealed path is required to reach this location, so anyone with accessibility issues may require additional assistance. Ceremony guests will be required to stand for the event, but we will have some chairs available for those who need them.  Let us know when RSVPing.
+            </div>
+          </div>
+          <div class="col px-5 text-justify">
+            <p>
+             The reception will be held at the ReefHQ Great Barrier Reef Aquarium, the largest living coral reef aquarium in the world.  ReefHQ is located at the southern-most end of Townsville’s Strand and venue location and parking arrangements can be viewed in our <a class="page-scroll" href="#map">Maps section</a>.
+            </p>
+            <div class="alert alert-info" role="alert">
+              Please no fishing at the aquarium.  Thanks for your understanding.
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col">
+            <button class="more-info collapsed btn btn-primary" type="button" data-toggle="collapse" data-target="#saturday" aria-expanded="false" aria-controls="saturday">
+              More info
+            </button>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col">
+            <p class="key-fact">Sunday 13 August</p>
+            <div class="row">
+              <div class="col">
+                Brunch (potentially, check back soon)
+              </div>
+            </div>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.col-lg-9 -->
+    </div><!-- /.row -->
+
+    <div class="row my-5">
+      <div class="col text-center">
+        <img src="img/swirl.svg" alt="Divider">
+      </div>
+    </div>
+
+    <div class="row" id="gifts">
+      <div class="col-lg-6 mx-auto">
+        <div class="text-center">
+          <h2 id="registry">Gifts and Registry</h2>
+          <p class="lead">
+            After 10 years togther we've amassed so many things already;  we propose this poem to help explain.
+          </p>
+          <p><img src="img/birthday-giftbox-sketch.svg" alt="Gift" width="50"></p>
+        </div>
+
+        <pre class="poem mb-5">Please no toasters, kettles, glasses or mugs
+And we're maxed out on cutlery, vases &amp; rugs
+Your presence to us is itself a gift
+But if you still find yourself adrift
+Wanting to give us a small token
+Beyond the words that you have spoken
+A present of money toward our honeymoon
+(which we’ll be taking sometime soon),
+Or toward projects in our house or yard,
+Or even just a special card,
+Would be more than generous,
+And, in fact, quite <em>stupendous</em>.</pre>
+
+        <p class="lead">
+          If you would like to sponsor part of our honeymoon (we're currently
+          thinking Hawaii), we'll be ever-so-grateful. We have a few ideas for you:
+        </p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th scope="row">$</th>
+              <td>Drinks on the beach</td>
+            </tr>
+            <tr>
+              <th scope="row">$</th>
+              <td>Snacks at the markets</td>
+            </tr>
+            <tr>
+              <th scope="row">$$</th>
+              <td>Dinner somewhere special</td>
+            </tr>
+            <tr>
+              <th scope="row">$$</th>
+              <td>A night's accommodation</td>
+            </tr>
+            <tr>
+              <th scope="row">$$$</th>
+              <td>Part of the flight costs</td>
+            </tr>
+            <tr>
+              <th scope="row">???</th>
+              <td>&hellip; or anything you can imagine</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col text-center">
+        <img src="img/swirl.svg" alt="Divider">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 mx-auto text-center">
+        <h2 id="key-info">Key info</h2>
+        <h3 class="mb-5" id="map">Directions &amp; Maps</h3>
+        <p>
+          <a class="btn btn-primary" href="./files/Kissing_Point_Map.pdf">Kissing Point Map (3MB PDF)</a>
+        </p>
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col px-0">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://umap.openstreetmap.fr/en/map/kate-and-davids-wedding_130973?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false#13/-19.2278/146.7913" allowfullscreen>Loading...</iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="text-center mb-5">
+          <h3 class="text" id="accommodation">Accomodation</h3>
+          <p class="lead">There are plenty of places to stay in town but sadly our place isn't one of them this time. Try these instead!</p>
+        </div>
+        <div class="row text-center align-items-center">
+          <div class="col-6"><a class="logo" target="_blank" href="http://www.seagulls.com.au/"><img class="img-fluid logo" src="./img/seagulls-logo.png" title="Seagulls Resort"></a></div>
+          <div class="col-6"><a class="logo" target="_blank" href="http://aquariusonthebeach.com/"><img class="img-fluid logo" src="./img/aquarius-logo.png" title="Aqaurius On The Beach"></a></div>
+          <div class="col-6"><a class="logo" target="_blank" href="http://the-ville.com.au/"><img class="img-fluid logo" src="./img/the-ville-logo.png" title="The Ville Resort"></a></div>
+          <div class="col-6"><a class="logo" target="_blank" href="http://www.grandchancellorhotels.com/Hotel-Grand-Chancellor-Townsville"><img class="img-fluid logo" src="./img/hotel-grand-chancellor-logo.png" title="Hotel Grand Chancellor Townsville"></a></div>
+          <div class="col-6"><a class="logo" target="_blank" href="http://www.rambutantownsville.com.au/"><img class="img-fluid logo" src="./img/rambutan-logo.png" title="Rambutan Resort"></a></div>
+          <div class="col-6"><a class="logo" target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img class="img-fluid logo" width="150" src="./img/rooms-by-rick.svg" title="Rooms by Rick"></a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="text-center mb-5">
+          <h3 id="region">About our region</h3>
+          <p class="lead">Townsville, North Queensland in 60 seconds</p>
+        </div>
+        <ul>
+          <li><b>Where:</b> North Queensland, Australia. Think topics, the Great Barrier Reef, rainforest and islands.</li>
+          <li><b>Getting here:</b> Come via a capital city or Cairns. Flights appear on special to/from the USA right now. In general, try <a href="https://qantas.com.au">Qantas</a>, <a href="http://iwantthatflight.com.au/">I Want That Flight</a> &amp; <a href="https://ozbargain.com.au/">OZBargain</a>.</li>
+          <li><b>Transport:</b> hire cars, no Uber (yet), public transport can be a bit limited. Try ride-sharing with others guests.</li>
+          <li><b>Weather:</b> temperate and dry in August, only bring a light jacket unless you get cold easily</li>
+          <li><b>Things to do:</b> <a href="https://en.wikipedia.org/wiki/Magnetic_Island">Magnetic Island</a>, <a href="https://www.npsr.qld.gov.au/parks/paluma-range/">Paluma</a>, <a href="https://en.wikipedia.org/wiki/Castle_Hill,_Townsville">Castle Hill</a>, take a reef trip, <a href="http://www.frostymango.com.au/">Frosty Mango</a>, <a href="http://www.paronellapark.com.au">Paronella Park</a>, <a href="http://www.cairns.qld.gov.au">Cairns</a>, so <a href="https://www.townsville.qld.gov.au/__data/assets/pdf_file/0023/5882/Accessing-Townsville-Guide-15-16_lo-res-web-version.pdf">lots more</a></li>
+          <li><b>Wildlife:</b> it's everywhere. Not kangaroos running amok in the street, but wallabies live near us and we saw a crocodile in the river last week. We have kookaburras too and about a million fruit bats.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col text-center">
+        <img src="img/swirl.svg" alt="Divider">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 mx-auto text-center">
+        <h2 id="questions">Questions?</h2>
+        <p class="lead">
+          If you’d like to ask us about anything – times, locations, food,
+          accessibility, facilities, parking, other ideas about what to do in
+          Townsville or deals on flights – ask away at:
+        </p>
+        <p class="lead my-4">
+          <a class="btn btn-primary" href="mailto:wtf@KateMarriesDavid.com">finally@KateMarriesDavid.com</a>
+        </p>
+        <p>We hope you're as excited as we are!<br>
+          <a href="save-the-date.html">Still trying to Save the Date?</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col text-center">
+        <img src="img/swirl.svg" alt="Divider">
+      </div>
+    </div>
+
+    <p>&nbsp;</p>
+
+  </div><!-- /.container.ivory -->
+
+  <div class="container text-center text-muted my-5">
+    <p>
+      <img class="invert mr-3" src="img/flourish-left.svg" alt="Tada">
+      <a class="text-muted" href="https://www.youtube.com/watch?v=jofNR_WkoCE" target="_blank">What <em>does</em> the fox say?</a>
+      <img class="invert ml-3" src="img/flourish-right.svg" alt="Tada">
+    </p>
   </div>
-  <!--  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  -->
+
+  <script src="js/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script>
+    $('.page-scroll').on('click', function(event) {
+      var anchor = $(this)
+      var offset = $('body').data('offset') - 5
+      $('html, body').animate({
+        scrollTop: $(anchor.attr('href')).offset().top - offset
+      }, 1000, 'easeInOutExpo')
+      event.preventDefault()
+    })
+  </script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script>
+    $('.gallery').magnificPopup({
+      delegate: 'a',
+      type:'image',
+      mainClass: 'mfp-with-zoom',
+      gallery: {
+        enabled: true
+      },
+      zoom: {
+        enabled: true
+      }
+    })
+  </script>
+  <script src="js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script>
+     $(".nav-link").click(function() {
+       if ($(".navbar-toggler:visible")) {
+         $("#navbarContent").collapse('hide')
+       }
+     })
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24253455-2', 'auto');
+    ga('send', 'pageview');
+  </script>
 </body>
 </html>
+<!-- Are you happy now, Michael? -->
