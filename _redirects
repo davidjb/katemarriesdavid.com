@@ -1,4 +1,4 @@
 # https://www.netlify.com/docs/redirects/
 #/    https://katemarriesdavid.com    302
-/rvsp              https://docs.google.com/forms/d/e/1FAIpQLSdCiLPYdMTc4KAj5w7hfsfqwu4Uj2TWK9sEfVmlhYUeHcsU8g/viewform?embedded=true#response=ACYDBNjIQTE1mKDN6T63IFCql2S8SEHmlpOFOYVqCMXosMTs2mqbkWAA3saePQ  302
+/rsvp              https://docs.google.com/forms/d/e/1FAIpQLSdCiLPYdMTc4KAj5w7hfsfqwu4Uj2TWK9sEfVmlhYUeHcsU8g/viewform?embedded=true#response=ACYDBNjIQTE1mKDN6T63IFCql2S8SEHmlpOFOYVqCMXosMTs2mqbkWAA3saePQ  302
 /rooms-by-rick     https://www.youtube.com/watch?v=dQw4w9WgXcQ   302
