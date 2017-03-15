@@ -72,7 +72,11 @@
       background-image: url('./img/gallery-2.jpg');
       background-position: center;
       background-size: cover;
-      min-height: 40vh;
+    }
+    @media (min-height: 768px) {
+      .intro {
+        min-height: 50vh;
+      }
     }
     .key-fact {
       font-size: 2.5rem;
@@ -217,8 +221,8 @@
 
     <div class="row px-0">
       <div class="col">
-        <div class="row intro align-items-end">
-          <div class="col-md-6 p-3 mx-auto mb-5 text-center ivory--overlay rounded">
+        <div class="row intro align-items-center align-items-lg-end">
+          <div class="col-md-6 p-3 mx-auto my-sm-5 text-center ivory--overlay rounded">
             <h1 class="display-1 title">Kate <img src="img/heart-sketch.svg" alt="and" title="and" style="height: .75em;"><span class="sr-only">and</span> David</h1>
             <p class="lead mb-2">are getting married (finally!)</p>
             <p class="key-fact mb-2">12 August 2017</p>
