@@ -111,6 +111,14 @@
       padding-left: 1rem;
       border-left: .25rem solid rgba(0,0,0,.5);
     }
+    .icon_container {
+      display: inline-block;
+      border-radius: .25rem;
+      height: 2rem;
+      width: 2rem;
+      background-color: #2470b5;
+      text-align: center;
+    }
     .logo {
       padding: 1rem;
       filter: sepia(100%) brightness(65%);
@@ -500,9 +508,46 @@ And, in fact, quite <em>stupendous</em>.</pre>
       </div>
     </div>
     <div class="row my-5">
-      <div class="col px-0">
+      <div class="col-12 text-center">
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input map-layer" type="checkbox" name="map-layers" value="321907" checked>
+            <span class="icon_container" style="background-color: DarkBlue;"><img class="" src="https://umap.openstreetmap.fr/uploads/pictogram/star-24-white.png"></span>
+            Event locations
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input map-layer" type="checkbox" name="map-layers" value="321919" checked>
+            <span class="icon_container" style="background-color: Yellow;"><img class="" src="https://umap.openstreetmap.fr/uploads/pictogram/lodging-24.png"></span>
+            Accommodation
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input map-layer" type="checkbox" name="map-layers" value="321914">
+            <span class="icon_container" style="background-color: DarkRed;"><img class="" src="https://umap.openstreetmap.fr/uploads/pictogram/parking-24_1.png"></span>
+            Parking
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input map-layer" type="checkbox" name="map-layers" value="321917">
+            <span class="icon_container" style="background-color: Coral;"><img class="" src="https://umap.openstreetmap.fr/uploads/pictogram/toilets-24-white.png"></span>
+            Services &amp; Amenities
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input map-layer" type="checkbox" name="map-layers" value="321915">
+            <span class="icon_container" style="background-color: DarkGreen;"><img class="" src="https://umap.openstreetmap.fr/uploads/pictogram/park-24_1.png"></span>
+            Things to do
+          </label>
+        </div>
+      </div>
+      <div class="col-12 px-0">
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src="https://umap.openstreetmap.fr/en/map/kate-and-davids-wedding_130973?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false#13/-19.2278/146.7913" allowfullscreen>Loading...</iframe>
+          <iframe class="embed-responsive-item" id="event-map" src="https://umap.openstreetmap.fr/en/map/kate-and-davids-wedding_130973?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false&datalayers=321907%2C321919#13/-19.2278/146.7913" allowfullscreen>Loading...</iframe>
         </div>
       </div>
     </div>
@@ -606,6 +651,14 @@ And, in fact, quite <em>stupendous</em>.</pre>
       zoom: {
         enabled: true
       }
+    })
+    $('.map-layer').on('click', function() {
+      var datalayers = ''
+      $('[name=map-layers]:checked').each(function() {
+        datalayers += this.value + '%2C'
+      })
+      var map = document.getElementById('event-map')
+      map.src = map.src.replace(/datalayers=.*?#/, "datalayers=" + datalayers + "#")
     })
   </script>
   <script src="js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
