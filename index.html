@@ -10,7 +10,8 @@
   <title>It Happened! Kate Married David</title>
   <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="js/galleria/themes/twelve/galleria.twelve.css">
+
   <style>
     html, body {
       height: 100%;
@@ -70,12 +71,12 @@
     }
     .intro {
       background-image: url('./img/kiss.jpg');
-      background-position: center;
+      background-position: center 30%;
       background-size: cover;
     }
     @media (min-height: 768px) {
       .intro {
-        min-height: 50vh;
+        min-height: 20vh;
       }
     }
     .key-fact {
@@ -150,27 +151,16 @@
     .table th {
       text-align: center;
     }
-    .mfp-with-zoom .mfp-container,
-    .mfp-with-zoom.mfp-bg {
-      opacity: 0;
-      -webkit-backface-visibility: hidden;
-      /* ideally, transition speed should match zoom duration */
-      -webkit-transition: all 0.3s ease-out;
-      -moz-transition: all 0.3s ease-out;
-      -o-transition: all 0.3s ease-out;
-      transition: all 0.3s ease-out;
-    }
 
-    .mfp-with-zoom.mfp-ready .mfp-container {
-      opacity: 1;
+    .galleria-stage {
+      background-color: rgba(0,0,0,.5);
     }
-    .mfp-with-zoom.mfp-ready.mfp-bg {
-      opacity: 0.8;
+    .galleria-info-title {
+      display: none !important;
     }
-
-    .mfp-with-zoom.mfp-removing .mfp-container,
-    .mfp-with-zoom.mfp-removing.mfp-bg {
-      opacity: 0;
+    .galleria-info-description a {
+      color: #fff;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -178,7 +168,6 @@
   <div class="container ivory mb-5">
     <!-- ☸ ☸ -->
     <!-- Easter eggs: dharma, 42, don't panic etc. Badger Rick Roll -->
-    <!-- Content from invitations, save the date, Google tasks, Trello etc -->
     <div id="navbar-wrapper">
       <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" id="navbar">
         <div class="container">
@@ -219,32 +208,29 @@
       <div class="col">
         <div class="row intro align-items-center align-items-lg-end">
           <div class="col-md-6 p-3 mx-auto my-sm-5 text-center ivory--overlay rounded">
-            <h1 class="display-1 title">Kate <img src="img/heart-sketch.svg" alt="and" title="and" style="height: .75em;"><span class="sr-only">and</span> David</h1>
-            <p class="lead mb-2">got married (finally!)</p>
-            <p class="key-fact mb-2">v1.0.0 released<br>12 August 2017</p>
-            <p class="lead mb-0">Townsville <img src="img/flourish-left.svg" alt="Divider"> Queensland <img src="img/flourish-right.svg" alt="Divider"> Australia</p>
+            <h1 class="display-3 title">Kate <img src="img/heart-sketch.svg" alt="and" title="and" style="height: .75em;"><span class="sr-only">and</span> David</h1>
+            <p class="key-fact mb-0">12 August 2017</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row gallery mb-5" id="gallery">
-      <div class="col px-0"><a href="img/gun-store.jpg" title="Tickets to the Gun show?"><img class="img-fluid" src="img/gun-store.jpg" alt="Bridal party"></a></div>
-      <div class="col px-0"><a href="img/rocks.jpg" title="Love on the rocks"><img class="img-fluid" src="img/rocks.jpg" alt="Bridal party on rocks"></a></div>
-      <div class="col px-0"><a href="img/laughs.jpg" title="Life, laughs and love"><img class="img-fluid" src="img/laughs.jpg" alt="Laughing couple"></a></div>
-    </div>
+    <div class="row gallery mb-5" id="photos">
+      <div class="col px-0">
+        <h2 class="sr-only">Photo Gallery</h2>
+        <div id="galleria"></div>
 
-    <div class="row gallery mb-5">
-      <div class="col-lg-6 mx-auto">
-        <div class="text-center mb-5">
-          <h2 id="photos">Photo Gallery</h2>
-          <p class="lead">Coming very, very soon.</p>
+        <div class="mt-3 text-center">
+          <strong>Jump to:</strong><br>
+          <!-- Hilarious: https://www.writerscentre.com.au/blog/qa-hens-hens-or-hens/ -->
+          <a class="mx-2" href="#" data-image="0">Hen's Night</a>
+          <a class="mx-2" href="#" data-image="14">Prep on the Day</a>
+          <a class="mx-2" href="#" data-image="79">Ceremony</a>
+          <a class="mx-2" href="#" data-image="164">Group &amp; Family Photos</a>
+          <a class="mx-2" href="#" data-image="180">Photoshoot</a>
+          <a class="mx-2" href="#" data-image="275">Reception</a>
         </div>
       </div>
-      <!-- Photos / small gallery from "engagement shoot" -->
-      <!--<div class="col px-0"><a href="img/gun-store.jpg" title="Tickets to the Gun show?"><img class="img-fluid" src="img/gun-store.jpg" alt="Bridal party"></a></div>-->
-      <!--<div class="col px-0"><a href="img/rocks.jpg" title="Love on the rocks"><img class="img-fluid" src="img/rocks.jpg" alt="Bridal party on rocks"></a></div>-->
-      <!--<div class="col px-0"><a href="img/laughs.jpg" title="Life, laughs and love"><img class="img-fluid" src="img/laughs.jpg" alt="Laughing couple"></a></div>-->
     </div>
 
     <div class="row">
@@ -705,19 +691,56 @@ And, in fact, quite <em>stupendous</em>.</pre>
       event.preventDefault()
     })
   </script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
+
+  <script src="js/galleria/galleria-1.5.7.min.js"></script>
+  <script src="js/galleria/themes/twelve/galleria.twelve.js"></script>
+  <script src="js/galleria/plugins/flickr/galleria.flickr.js"></script>
+  <script src="js/galleria/plugins/history/galleria.history.min.js"></script>
+
   <script>
-    $('.gallery').magnificPopup({
-      delegate: 'a',
-      type:'image',
-      mainClass: 'mfp-with-zoom',
-      gallery: {
-        enabled: true
-      },
-      zoom: {
-        enabled: true
+    // Initialize Galleria
+    Galleria.run('#galleria', {
+      height: 2/3,
+      imageCrop: false,
+      popupLinks: true,
+      thumbnails: 'lazy',
+      thumbQuality: false,
+      flickr: 'set:72157686500799521',
+      flickrOptions: {
+        sort: 'date-taken-asc',
+        imageSize: 'big',           // photo size ( thumb,small,medium,big,original )
+        description: true,
+        backlink: true,
+        max: 500
+      }
+    }).ready(function() {
+      let gallery = this
+
+      gallery.attachKeyboard({
+        left: this.prev,
+        right: this.next,
+        13: function() {
+          this.play(3000)
+        }
+      })
+
+      // Lazy load thumbnails
+      gallery.get('thumblink').addEventListener('click', function() {
+        gallery.lazyLoadChunks(40)
+      })
+
+      // Allow jumping to different images
+      // Edge doesn't support NodeList.forEach
+      for (let link of document.querySelectorAll('[data-image]')) {
+        let imageIndex = parseInt(link.dataset.image)
+
+        link.addEventListener('click', function(event) {
+          event.preventDefault()
+          gallery.show(imageIndex)
+        })
       }
     })
+
     $('.map-layer').on('click', function() {
       var datalayers = ''
       $('[name=map-layers]:checked').each(function() {
