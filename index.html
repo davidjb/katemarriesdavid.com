@@ -698,6 +698,15 @@ And, in fact, quite <em>stupendous</em>.</pre>
   <script src="js/galleria/plugins/history/galleria.history.min.js"></script>
 
   <script>
+    if (window.NodeList && !NodeList.prototype.forEach) {
+      NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+          callback.call(thisArg, this[i], i, this);
+        }
+      };
+    }
+
     // Initialize Galleria
     Galleria.run('#galleria', {
       height: 2/3,
@@ -730,15 +739,14 @@ And, in fact, quite <em>stupendous</em>.</pre>
       })
 
       // Allow jumping to different images
-      // Edge doesn't support NodeList.forEach
-      for (let link of document.querySelectorAll('[data-image]')) {
+      document.querySelectorAll('[data-image]').forEach(function (link) {
         let imageIndex = parseInt(link.dataset.image)
 
         link.addEventListener('click', function(event) {
           event.preventDefault()
           gallery.show(imageIndex)
         })
-      }
+      })
     })
 
     $('.map-layer').on('click', function() {
