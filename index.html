@@ -734,9 +734,12 @@ And, in fact, quite <em>stupendous</em>.</pre>
       })
 
       // Lazy load thumbnails
-      gallery.get('thumblink').addEventListener('click', function() {
+      let thumblink = gallery.get('thumblink')
+      let lazyLoadThumbnails = function() {
         gallery.lazyLoadChunks(40)
-      })
+        thumblink.removeEventListener('click', lazyLoadThumbnails)
+      }
+      thumblink.addEventListener('click', lazyLoadThumbnails)
 
       // Allow jumping to different images
       document.querySelectorAll('[data-image]').forEach(function (link) {
