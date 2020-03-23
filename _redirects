@@ -1,2 +1,2 @@
 # https://www.netlify.com/docs/redirects/
-/    https://katemarriesdavid.com    302
+/    https://katemarriesdavid.com    301!
