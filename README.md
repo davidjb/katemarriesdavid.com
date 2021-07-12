@@ -1,5 +1,7 @@
 # Readme
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2845f49e-329c-4ded-8f4c-16e6d378c781/deploy-status)](https://app.netlify.com/sites/katemarriesdavid/deploys)
+
 Yes, our wedding website is online and yeah, it's on GitHub.  So what?  Why not make an awesome wedding even more awesomer?
 
 ## Prereqs
